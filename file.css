@@ -1,0 +1,592 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.h11{
+    width: 25%;
+    float: left;
+    background-color: aqua;
+}
+.h12{
+    width: 50%;
+    float: left;
+    background-color:black;
+}
+.h14{
+    width: 25%;
+    background-color:gold;
+    float: left;
+}
+
+/* 
+Thuộc tính này dùng để chỉ độ sâu trong không gian 3 chiều. 
+Trong trường hợp không có phần tử z-index thì ta có thể coi nó như không gian 2 chiều. 
+Màn hình sẽ hiển thị những gì có ở mặt đáy tức mặt flat. 
+Khi có thêm phần tử z-index vào thì cấu trúc hiển thị sẽ trở thành 3 chiều. 
+Ta có thể tưởng tượng như không gian giữa mặt đáy và màn hình hiển thị bị cắt ra thành nhiều lớp song song nhau. 
+Những lớp nào có chỉ số z-index càng cao thì càng tiến gần đến màn hình 
+và ít có khả năng bị che hơn so với các lớp có chỉ số z-index thấp */
+
+/* 
+    Thuộc tính Position có 3 TH thường được sử dụng:
+    Position: relative
+    Position: fixed
+    Position: absolute
+TH1: Position: relative đi cùng với nó là có 4 thuộc tính khác. top bottom left right
+top và bottom xđ chiều dọc của Position này, còn left và right xđ chiều ngàng của Position
+Nên khi sử dụng chỉ được sd 2 trong 4 cái trên
+         Position: relative;
+         top: -500px;
+         left: 350px; 
+         Vì gốc của nó là dưới hình ảnh nên khi ta để top và left như trên nó sẽ lùi sang tráo 350
+         lên trên 500 nhưng vì gốc của nó là dưới hình ảnh nên khi di chuyển thì nó vẫn 
+         có 1 khoảng trống ở đấy.
+    
+TH2: Position: fixed lấy mốc là gốc màn hình. Và có thể có thêm các thuộc tính đi cùng giống Position: relative;
+Khi ta kéo trang web xuống thì thẻ mà có thuộc tính Position: fixed sẽ luôn hiện ra
+        
+         Position: fixed;
+         top: 0px;
+         left: 350px;
+
+TH3: Position: absolute sẽ lấy gốc là class gần nhất nó mà có thuộc tính positoin. 
+VD như class gần nhất của nó class container và class head nhưng 2 class này k có thuộc tính position
+nên nó sẽ lấy gốc của màn hình làm gốc. Khi kéo xuống thì thẻ có thuộc tính position này sẽ biến
+mất và k hiện ra như fixed;
+Khi ta thêm thuộc tính position cho class container thì trong TH này nõ sẽ lấy gốc của cả trang web làm gốc 
+         position: absolute;
+         top: -10px;
+         left: 350px;
+*/
+/* VD về TH1:  */
+
+.a1{
+    width: 200px;
+    height: 500px;
+    background-color: coral;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 4;
+}
+
+.a2{
+    width: 200px;
+    height: 500px;
+    background-color:cornflowerblue;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    z-index: 6;
+}
+.a3{
+    width: 200px;
+    height: 200px;
+    background-color: darkcyan;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 5;
+}
+
+.b1{
+    width: 200px;
+    height: 500px;
+    background-color: coral;
+    position: absolute;
+    top: 900px;
+    left: 100px;
+    z-index: 4;
+}
+
+.b2{
+    width: 200px;
+    height: 500px;
+    background-color:cornflowerblue;
+    position: absolute;
+    top: 900px;
+    left: 200px;
+    z-index: 6;
+}
+.b3{
+    background-color: darkcyan;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 5; 
+}
+
+
+/* THUỘC TÍNH background TRONG CSS
+-background-color: chỉ định màu nền cho thẻ html được chọn
+-background-image: chỉ định hình ảnh nền cho thẻ html được chọn
+-background-repeat: chỉ định ảnh nền của thẻ html có lặp lại hay k.
+Thuộc tính background-repeat kiểm soát cách hình nền sau khi nó được đặt kích thước 
+(bởi thuộc tính background-size) và vị trí (bởi thuộc tính background-position). 
+Giá trị của của thuộc tính này có thể là một trong những từ khóa sau: 
+repeat-x(Lặp lại theo chiểu ngang), repeat-y(Lặp lại theo chiều dọc), repeat(Lặp lại theo 2 chiều)
+space, round, no-repeat(Không lặp lại),inherit(Kế thừa từ thẻ html cha chứa nó, thẻ cha có thuộc tính gì thì
+nó có thuộc tính đó).
+
+-background-position: chỉ định vị trí của ảnh nền 
+
+-background-attachment dùng để kiểm soát hình nền liên quan đến các khung hình và các thành phần. 
+Nó có ba giá trị là: fixec, local, scroll. Fixed nghĩa là hình ảnh nền được cố định vào khung nhìn 
+và không di chuyển, ngay cả khi người dùng đang di chuyển dọc theo khung.
+ Local là hình nền nên được cố định vào vị trí của nó trong phần tử. 
+ Nếu phần tử có một cơ chế di chuyển và hình nền được đặt lên hàng đầu, 
+ khi người dùng cuộn xuống phần tử, hình nền sẽ di chuyển ra khỏi tầm nhìn. 
+ Scroll có nghĩa là các hình nền cố định và sẽ không di chuyển ngay cả với các nội dung của các phần tử của nó.
+
+ -background-size: lấy kích thước của ảnh nền
+ có 3 TH:+cặp width height
+         +contain: đảm báo nhìn đủ ảnh thì sẽ k bao đủ nội dung
+         +cover: đảm bảo chưa hết nội dung thì sẽ bị mất 1 phần ảnh
+-background-origin: Thuộc tính background-origin quy định cụ thể trong đó diện tích 
+các mô hình hộp hình nền phải được bố trí theo. Giá trị mặc định là border-box, khi mà vị trí hình ảnh ở sát viền 
+của khung, padding-box khi mà hình ảnh ở trong viền của khung và content-box khi mà hình ảnh ở trong khung
+ */
+
+ 
+ .word{
+    position: relative;
+    top: 100px;
+    left: 500px;
+    /* width: 100px;
+    height: 500px; */
+    background-image: url(https://cdn.londonandpartners.com/assets/73295-640x360-london-skyline-ns.jpg);
+    /* dùng background-repeat để chỉnh cho ảnh lặp lại theo cách nào. K lặp lại thì n sẽ bao đủ nội dung thì thôi
+    Nếu để cả thuộc tính width height thì n sẽ bao đủ ngần đó*/
+    background-repeat: no-repeat; 
+    
+     /*background-repeat: repeat-x Lặp theo chiều ngang*/
+    background-attachment: scroll;
+    /*Khoảng cách tính từ cái element chứa thuộc tính đó, Tức trong TH này là thẻ p. nó sẽ cách góc của 
+    p trên xuống dưới 100px trái vào 100px. Chỉ sử dung khi background-repeat là no-repeat */
+    background-position: 10px 10px; 
+    background-size: cover;
+    background-origin: content-box
+}
+
+/* Viết CSS theo ShortHand: chỉ cần sử dụng 1 thuộc tính backgroud để dùng tất cả các thuộc tính như
+backgroud-image,backgroud-repeat,backgroud-position,backgroud-size...*/
+.word{
+    background: white 
+    url(https://cdn.londonandpartners.com/assets/73295-640x360-london-skyline-ns.jpg) 10px 10px no-repeat;
+    /* dùng màu nền trắng có hình ảnh nền căn từ trái sang và k lặp lại */
+
+    /* Dùng nhiều hình nền cho 1 thẻ
+    backgroud: ảnh 1 left top no-repeat content-box, ảnh 2 top right repeat-x cover,ảnh n.....thuộc tính n;
+     */
+
+}
+
+/* -THUỘC TÍNH BORDER: có 3 loại border-color,border-width, border-style. Thông thường ngta cũng sử dụng
+kiểu shorhand để viết 1 lúc 3 cái luôn
+   -Trong trường hợp ta muốn mỗi cạnh trên dưới trái phải lại 1 giá trị khác nhau thì ta dùng các thuộc
+   tính như border-left,border-top... và n cũng có 3 thuộc tính như color width style và ngta cũng 
+   hay sử dụng kiểu SHORHAND để viết.
+   -THUỘC TÍNH BORDER-RADIUS: bẻ cong đường viên tại 4 góc nhọn. Ap dụng theo nguyên tắc:
+   +4 bộ gtri: trái-trên,phải-trên,trái-dưới,phải-dưới
+   +3 bộ gtri: trái-trên,phải-trên+phải-dưới, trái-dưới
+   +2 bộ gtri: trái-trên+phải-trên,trái-dưới+phải-dưới
+   +1 bộ gtri: áp dụng cho cả 4 góc
+   VD: border-radius: 5px 10px 6px 10px
+       border-radius: 5px 10px 6px 
+       border-radius: 5px */
+.b3{
+    border: 5px solid bisque;
+    border-left: dotted rgb(9, 26, 26);
+    border-radius: 20px 10px 20px 10px;
+    /* Chỉnh thành hình tròn */
+    border-radius: 50%;
+    /* Khi để thuộc tính padding thì n cũng tự dãn phần height ra thêm phần padding. Ban đầu k có padding sẽ là 
+    hình tròn. Sau khi thêm padding như bên dưới thì n k còn là hình tròn nữa. */
+    padding: 50px;    
+}
+
+/* Tạo model trong trang web:
+content: Nội dung(text,img..) của element
+padding: khoảng cách từ đường viền border đến nội dung chứa trong content
+margin: khoảng cách từ border của element(nội dung) này đến ellement(nội dung) khác 
+hoặc giữa các phần của trang web. Margin có các thuộc tính như margin-top,margin-right...
+để chỉ khoảng cách giữa các phần trên dưới trái phải giữa các nội dung với nhau. Và nó cũng có cách
+viết SHORHAND. VD margin: 10px 5px 30px 10px (top right bottom left)
+margin có 1 giá trị đặc biết là: margin: 0px,auto nghĩa là k cách phía nào và tự căn giữa */
+
+/* THUỘC TÍNH OPACITY: Thuộc tính opacity xác định độ trong suốt của một phần tử. Có giá trị từ 0-1.
+Khi opacity có gtri 0 thì phần tử trong suốt 100% cta sẽ k nhìn thấy nữa nhưng k có nghĩa là n k hiên thị
+Nó vẫn chiếm diện tích trên html
+
+
+Thuộc tính opacity thường được sử dụng cùng với bộ chọn :hover để thay đổi độ trong của ảnh khi rê chuột vào.
+*/
+.b2{
+    /* Trong suốt 80% */
+    opacity: 0.8;
+}
+/* Thuộc tính opacity thường được sử dụng cùng với bộ chọn :hover để thay đổi độ trong của ảnh khi rê chuột vào. */
+.b1:hover{
+    opacity: 0.7;/*Nếu k muốn trong suốt khi di chuột thì để opacity:1;*/
+    filter: alpha(opacity=40);
+}
+
+/* 
+Thuộc tính OVERFLOW: chỉ định cách thể hiện của phần nội dung vượt qua độ lớn của nó
+Có 2 thuộc tính phụ là overflow-x và overflow-y để chỉ cách thể hiện nội dung bị tràn ngang hau dọc
+Có 4 gtri:
+-visible: hiển thị nội dung bị tràn(Gía trị mặc định)
+-hidden: ẩn nội dung bị tràn
+-scroll: tạo thành thanh cuộn để xem nội dung bị tràn tùy theo thuộc tính overflow(cả 2 chiều)
+overflow-x(chỉ có thanh cuộn chiều ngang),overflow-y(chỉ có thanh cuộn chiều dọc)
+-auto: nếu k quy định độ lớn, n sẽ tự lớn ra theo nội dung, ngược lại n sẽ tạo thanh cuộn
+*/
+.overflow{
+    width: 500px;
+    border: 2px solid darkcyan;
+    margin-top: 500px;
+    max-height: 60px;
+    /* Nội dung nằm ngoài khung chứa sẽ ẩn đi sẽ k nhìn thấy */
+    overflow: hidden;
+    /* Nội dung năm ngoài sẽ có thanh cuộn để xem */
+    overflow: scroll;
+}
+.q1{
+    height: 60px;
+    width: 40px;
+    background-color: blueviolet;
+    float: left;
+}
+.q2{
+    height: 60px;
+    width: 40px;
+    background-color: darkgoldenrod;
+    /* Nếu k có clear thì q2 sẽ mất 1 phần,còn nếu có clear thì q2 có đủ 60px và 40px  */
+    clear: both;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+/*  Các thuộc tính định dạng, căn chỉnh đoạn văn, văn bản
+-color: chỉ màu của văn bản
+-text-align: canh lề văn bản: left,right,center,justify
+-text-decoration: gồm các giá trị:
++overline: gạch đầu text
++line-through: gach giữa text
++underline: gạch cuối text
++none: biến mất gạch khi thẻ nào đó có sẵn gạch như thẻ link
+-text-transform: 
++capitalize: chữ cái đầu tiên của mỗi từ trong phần Text sẽ được viết hoa.
++uppercase: tất cả ký tự trong phần text sẽ được viết hoa.
++lowercase: tất cả ký tự trong phần text sẽ được viết thường.
++none: không thay đổi cách hiển thị nội dung phần tử. 
+-text-indent: giá trị là px,em,%. Đoạn đầu của đoạn văn sẽ lùi vào thùy thuộc giá trị cho vào
+-letter-spacing: chỉ định khoảng cách giữa 2 chữ
+VD: h3{
+    letter-spacing: 50px;
+}
+-line-height: chỉ khoảng cách giữa các dòng
+-word-spacing:khoảng cách giữa các từ
+
+-text-shadow: tạo bóng đổ cho chữ trong văn bản. Đi kèm 4 gtri:
++x: độ lệch bên phải của bóng đổ(px,em,%..) nếu nhỏ hơn 0 thì đổ về bên trái và ngược lại
++y: độ lệch về bên dưới(px,em,%..) nếu nhỏ hơn 0 đổ lên trên
++z: độ nhòe của chữ(px)
++c: màu của chữ
+
+-khi muốn  tạo bóng đổ cho 1 thuộc tính khác mà nó chứa cả 1 dòng như các thẻ h.. hay 
+cho các hộp chứa trong các đường viền border thì ta phải dùng BOX-SHADOW
+*/
+.word{
+    line-height: 30px;
+    word-spacing: 10px;
+}
+h3{
+    text-shadow: 10px 4px 0px darkcyan
+}
+/* Khi có 1 đoạn text dài mà vượt qua khỏi khung chứa nhưng lại bị ẩn bởi thuộc tính hidden thì ta sẽ dùng
+thuộc tính text-overflow để hiển thị dấu...phía cuối đoạn. Nó thường đi cùng với thuộc tính: white-space */
+.word{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/*  
+Một số selector nâng cao và ứng dụng thực tiễn trong CSS3
+    -Selector riêng từng trạng thái thẻ <a>:
+a:link{}: chọn tất cả thẻ chưa từng bị click
+a:active{}:chọn tất cả thẻ a bị click và đang chuyển trang 
+a:visited{}:chọn tất cả thẻ a đã từng bị click và chuyển trang
+
+    -Selector theo tác động của con trỏ chuột
+div:hover: khi dê chuột đến thẻ div này thì thẻ div này mới có thực hiện css viết trong hàm. 
+Áp dụng cho thẻ mọi thẻ
+input:focus: thường áp dụng cho thẻ input. 
+
+    -Selector chọn theo quan hệ cha con 1: Áp dụng cho mọi thẻ
+p:first-child: chọn mọi thẻ <p> mà nó là thẻ con đầu tiên của cha nó. Vi dụ trong thẻ cha div có các thẻ lần lượt
+là a, span rồi mới đến thẻ p thì thẻ p k được chọn vì thẻ a đã là thẻ con đầu tiên
+p:last-child: chọn mọi thẻ <p> mà nó là thẻ con cuối cùng của cha nó. Vi dụ trong thẻ cha div có các thẻ lần lượt
+là a, span rồi mới đến thẻ p thì thẻ p được chọn vì thẻ p đã là thẻ con cuối cùng
+p:first-of-type: chọn mọi thẻ <p> mà nó là thẻ con <p> đầu tiên của cha nó. Vi dụ trong thẻ cha div có các thẻ
+lần lượt là a,p1, span,p2 thì thẻ p1  được chọn vì thẻ p1 đã là thẻ p con đầu tiên
+p:last-of-type: chọn mọi thẻ <p> mà nó là thẻ p con cuối cung của cha nó.
+
+
+    -Selector chọn theo quan hệ cha con 2: Áp dụng cho mọi thẻ
+p:nth:child(3): chọn thẻ p mà n là thẻ con thứ 3 của cha 
+p:nth-last-child(2): chọn thẻ p mà n là thẻ con thứ 2 của cha TỪ DƯỚI LÊN
+p:nth-of-type(4):  chọn thẻ p mà n là thẻ p con thứ 4  của cha 
+p:nth-last-of-type(3): chọn thẻ p mà n là thẻ p con thứ 4 của cha  TỪ DƯỚI LÊN
+
+
+    -SELECT chọn theo trạng thái sử dung 1: ÁP dụng mọi thẻ(VD áp dụng thẻ input)
+input:checked: chọn mọi thẻ input đã được chọn
+input: valid: chọn mọi thẻ input có đúng định dạng. vd khi nhập email đúng định dạng thì nó sẽ áp dụng css
+viết trong đó, khi đó sẽ k cần phải dùng javascrip để thông báo cho ngta biết là đã nhập đúng
+input: invalid:  chọn mọi thẻ input có sai định dạng. vd khi nhập email k đúng định dạng thì nó sẽ áp dụng css
+viết trong đó, khi đó sẽ k cần phải dùng javascrip để thông báo cho ngta biết là đã nhậpsai
+input: range: chọn mọi thẻ input nằm trong vùng giá trị. VD ta chỉ cho ngta nhập từ 1 đến 10 nếu nhập năm tron
+khoảng đó thì css sẽ được áp dụng
+input:out-of-range: chọn mọi thẻ input nằm ngoài vùng giá trị. VD ta chỉ cho ngta nhập từ 1 đến 10 nếu nhập năm
+ngoài khoảng đó thì css sẽ được áp dụng
+
+
+    --SELECT chọn theo trạng thái sử dung 2: ÁP dụng mọi thẻ(VD áp dụng thẻ input)
+input:read-only: chọn mọi thẻ k được thay đổi gtri
+input: read-write:chọn mọi thẻ được thay đổi gtri
+input: required: chọn mọi thẻ k được bỏ trống  gtri
+input: optional: chọn mọi thẻ  được bỏ trống gtri
+
+    -Một số selector đặc biệt khác: 
+div-empty(áp dụng mọi thẻ): chọn  thẻ k có con
+
+
+    -Selector tạo nội dung ngoài luông: Áp dụng mọi thẻ
+p::after{ contain: "nội dung muốn thêm"; CSS} thêm nội dung vào sau thẻ p phần "nội dung muốn thêm" và 
+áp dụng CSS 
+p::before{ contain: "nội dung muốn thêm"; CSS} thêm nội dung vào trc thẻ p phần "nội dung muốn thêm" và 
+áp dụng CSS 
+
+ */
+.q3{
+    position: static;
+    /* left: 700px; */
+}
+ a:link,a:active,a:visited{
+     color: aqua;
+     font-size: 20px;
+ }
+ /* Áp dụng hover cho thẻ a: khi de chuột vào sẽ thực hiện css viết dưới đây  */
+ a:hover{
+     color: blanchedalmond;
+
+ }
+ .i1{
+     border: 2px solid lawngreen;
+     padding: 5px;
+ }
+ /* Khi dê chuột đến 2 ô nhập nó sẽ thực hiện css dưới đây */
+ .i1:hover{
+    border: 2px solid yellowgreen;
+ }
+ /* Khi dí chuột để nhập thông tin nó sẽ thực hiện css dưới đây */
+ .i1:focus{
+     border: 2px solid blueviolet;
+ }
+
+ /* Sử dụng vaild để áp dụng cho trường hợp nhập email đúng */
+input:valid{
+    border: 2px solid rgb(77, 77, 230);
+ }
+ /* Ngược lại nhập sai sẽ đổi nền màu đỏ */
+input:invalid{
+    border: 2px solid rgb(219, 44, 44);
+ }
+
+ /* Sử dụng after:  */
+ p::after{
+     content: "Phần thêm";
+     color: aqua;
+ }
+
+
+
+
+ /* --------------------------------------------------------------------------------------------------- */
+ /* 
+ TẠO MÀU NỀN HÒA TRỘN MÀU:
+ 
+ *)background: linear-gradient(hướng(có thể tính theo độ), màu 1, màu 2...màu n)
+ -background: linear-gradient(to right, red,green, blcack): trộn màu từ phải sang trái, nếu muốn từ trái sang
+ phải thì to left
+ -background: linear-gradient(to bottom right, red,green, black): trộn màu từ góc trên màn hình xuống góc dưới
+ bên phải màn hình.
+ 
+ *)background:reapeating-linear-gradient(hướng (có thể tính theo độ), màu 1, màu 2...màu n) 
+ giống như background: linear-gradient 
+ nhưng khác nhau: background: linear-gradient vd ta sd 2 màu n sẽ chia màn hình thành 2 phần 
+ 1 bên trắng 1 bên đen ở giữa sẽ là màu hòa trộn của 2 màu. nếu sd background: reapeatinh- linear-gradient
+ n sẽ lặp lại trắng đen trắng đen cho đến khi hết màn hình*/
+
+
+
+ /* $$$$$$$$$$$$$$$$$$$$$$$$$$ LÀM CHUYỂN ĐỘNG 2D VÀ 3D TRONG CSS$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+
+/* 
+-THUỘC TÍNH TRANSITION:
+Cách dùng:
++Cách 1:Thời gian chung cho cả chiều cao và chiều rộng
+*/
+.b3{
+    /* Đặt chiều cao và rộng cho thẻ là 200px và 200px */
+    width: 100%;
+    height: 200px;
+    transition: 1s;
+}
+/* Khi dê chuột vào n sẽ tăng độ rộng và cao như những gì ta khai báo dưới đây */
+/* .b3:hover{
+width: 300px;
+height: 500px;
+background-color: aquamarine;
+} */
+
+/* +Cách 2:Thời gian riêng cả chiều cao và chiều rộng */
+/* .b3{ */
+    /* Đặt chiều cao và rộng cho thẻ là 200px và 200px */
+    /* width: 200px;
+    height: 200px;
+    transition: width 1s, height 2s; */
+/* } */
+
+/* .b3:hover{
+    width: 300px;
+    height: 500px;
+    background-color: aquamarine;
+    } */
+
+/* *********CÁC THUỘC TÍNH PHỤ TRỢ CHO TRANSITION*************
+-TRANSITION-DELAY: thêm độ trễ chuyển động(Khi ta trỏ chuột vào thì n đợi hết thời gian trễ này n mới CĐ)
+-transition-duration: 	Quá trình chuyển đổi mất bao nhiêu thời gian.
+-transition-timing-function:gồm các gtri:
++ease: Xác định một hiệu ứng của quá trình chuyển đổi với một sự khởi đầu chậm, 
+sau đó nhanh chóng, sau đó kết thúc chậm.
++ease-in: Xác định một hiệu ứng của quá trình chuyển đổi với một khởi đầu chậm chạp.
++ease-out: Xác định một hiệu ứng của quá trình chuyển đổi với một kết thúc chậm.
++ease-in-out: Xác định một hiệu ứng của quá trình chuyển đổi với một khởi đầu và kết thúc chậm.
++linear: Xác định một hiệu ứng của quá trình chuyển đổi với cùng một tốc độ từ đầu đến cuối.
++cubic-bezier(n,n,n,n): Xác định giá trị cho hiệu ứng của quá trình chuyển đổi theo từng giai đoạn,
+giá trị xác định chỉ có thể từ 0 tới 1.
+-->Ta cũng có thể sd shorhand cho transition như: transition: height 2s ease 3s;
+ */
+
+
+ /* ############################      THUỘC TÍNH TRANSFORM          ########################### */
+ /*
+ Translate: Di chuyển phần tử vtri hiện tại của nó với vtri mới dưa trên tọa độ x,y trong gtri translate
+ -translate(x) di chuyển từ vtri đầu đến vtri + thêm x;
+ -translate(y) di chuyển từ vtri đầu đến vtri + thêm y;
+ -Ta cũng có thể tắt:translate(x,y) vd: translate(50px,100px)
+-Do transform k phải để di chuyển mà n chỉ thay đổi vtri của thẻ nên khi di chuột vào n sẽ ra ngay vtri trong
+translate nên n cần đi cùng transition để thành di chuyển
+
+
+-Rotate(truyển vào độ): chỉnh độ nghiêng. Dùng như translate nhưng để chihr độ nghiêng. n vẫn phải đi cùng
+transition để di chuyển. Nếu đi 1 mình n chỉ có td làm nghiêng thuộc tính
+-scale(truyền vào số): làm tăng giảm chiều w h số lần mà ta truyền vào
+-Khi muốn 1 hiệu ứng tổng hợp: dùng tranform với matrix(1,2,3,4,5,6): 1 là sacleX,2 skewY,3 skewX,4 scaleY
+4 translateX,5 translateY
+*/
+
+.b4{
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+    background-color: blue;
+}
+.b4:hover{
+    transform: translate(50px,-40px);
+
+}
+
+/* Sd riêng transform rotate */
+.b5{
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+    background-color: rgb(219, 219, 236);
+}
+
+/* Sd với transition */
+.b6{
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+    background-color: rgb(102, 184, 48);
+}
+.b6:hover{
+    transform: rotate(45deg);
+}
+
+.b7{
+    width: 100px;
+    height: 100px;
+    transform: scale(2,0);
+    background-color: rgb(24, 48, 7);
+    left: 1000px;
+}
+
+.b8{
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+    background-color: rgb(184, 48, 184);
+}
+.b8:hover{
+    transform: scale(1.5,0.5);
+}
+
+/* TRANSFORM 3D: */
+.b9{
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+    background-color: rgb(48, 141, 184);
+}
+.b9:hover{
+    transform: rotateX(45deg);
+}
+.b10{
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+    background-color: rgb(14, 43, 56);
+}
+.b10:hover{
+    transform: rotateX(45deg) rotateY(30deg);
+}
+.b11{
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+    background-color: rgb(155, 184, 48);
+    left: 100px;
+}
+.b11:hover{
+    transform: rotateX(45deg) rotateY(30deg) rotateZ(30deg);
+}
+/* Transform tổng họp rotate3D(x,y,z,deg): truyền vào x y z là trục quay, 0 là không quay,1 là có quay,
+và deg là số độ 3 trục quay. VD rotate(1,0,1,45deg): quay trục x,z 45 độ,o quay y */
+.b12{
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+    background-color: rgb(46, 54, 18);
+    left: 100px;
+}
+.b12:hover{
+    transform: rotate3d(1,0,1,45deg);
+}
