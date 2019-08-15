@@ -33,5 +33,6 @@ git checkout -b name-branch: tạo 1 branch mới và chuyển sang nhánh đó 
 
 git branch: để xem có mấy branch và ta đang ở nhánh nào
 
-git merge: thêm 1 nhánh vào 1 nhánh khác. Vd khi ta muốn thêm nhánh B vào A. Lúc đầu ta phải dùng git checkout A rồi git merge B ta sẽ thêm được B vào A 
+git merge: thêm 1 nhánh vào 1 nhánh khác. Vd khi ta muốn thêm nhánh B vào A. Lúc đầu ta phải dùng git checkout A rồi git merge B ta sẽ thêm được B vào A. Sau khi ta đã chắc chắn muốn đưa nhánh B vào A thì ta sẽ xóa nhánh B đi để cho repon sạch sẽ. Ta sẽ add nhánh feature/branch-class vào master nên master lúc này sẽ chứa luôn tất cả những gì có trong feature/branch-class
 
+git branch -d name-branch để xóa bỏ nhánh muốn xóa. 
