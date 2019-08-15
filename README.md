@@ -33,3 +33,5 @@ git checkout -b name-branch: tạo 1 branch mới và chuyển sang nhánh đó 
 
 git branch: để xem có mấy branch và ta đang ở nhánh nào
 
+git merge: thêm 1 nhánh vào 1 nhánh khác. Vd khi ta muốn thêm nhánh B vào A. Lúc đầu ta phải dùng git checkout A rồi git merge B ta sẽ thêm được B vào A 
+
