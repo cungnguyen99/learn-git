@@ -37,4 +37,6 @@ git merge: thêm 1 nhánh vào 1 nhánh khác. Vd khi ta muốn thêm nhánh B v
 
 git branch -d name-branch để xóa bỏ nhánh muốn xóa. 
 
-git reset --soft id-of-commit: quay trở lại commit muốn thay đổi. Đối với lệnh này thì file thay đổi sẽ ở trạng thái màu xanh chỉ chờ để commit lại chứ không cần add lại, tức nó đang ở staring area rồi chỉ cần commit
+git reset --soft id-of-commit: quay trở lại commit muốn thay đổi. Đối với lệnh này thì file thay đổi sẽ ở trạng thái màu xanh chỉ chờ để commit lại chứ không cần add lại và ở trong file code của visua studio cũng không biến mất vì nó vẫn đang ở trong staring area chỉ chờ để commit, tức nó đang ở staring area rồi chỉ cần commit
+
+git reset --mixed id-of-commit: quay trở lại commit muốn thay đổi. Đối với lệnh này thì file thay đổi sẽ ở trạng thái màu đỏ và cần phải add vào staring area rồi commit và ở trong file code của visua studio cũng không biến mất vì nó vẫn đang ở trong working directory và chuẩn bị được add vào staring area. Tức khi dùng câu lệnh này nó sẽ xuống hẳn working directory và phải add lại vào staring area rồi mới sửa commit được
