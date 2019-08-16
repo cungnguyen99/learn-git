@@ -41,4 +41,4 @@ git reset --soft id-of-commit: quay trở lại commit muốn thay đổi. Đố
 
 git reset --mixed id-of-commit: quay trở lại commit muốn thay đổi. Đối với lệnh này thì file thay đổi sẽ ở trạng thái màu đỏ và cần phải add vào staring area rồi commit và ở trong file code của visua studio cũng không biến mất vì nó vẫn đang ở trong working directory và chuẩn bị được add vào staring area. Tức khi dùng câu lệnh này nó sẽ xuống hẳn working directory và phải add lại vào staring area rồi mới sửa commit được
 
-git reset --hard id-of-commit: Bỏ hẳn commit đó và những commit nó gặp trên đường đi. Nó bỏ hẳn ra khỏi working directory nên trong file vs cũng sẽ mất thay đổi mà ta commit.
+git reset --hard id-of-commit: Bỏ hẳn commit đó và những commit nó gặp trên đường đi. Nó bỏ hẳn ra khỏi working directory nên trong file vs cũng sẽ mất thay đổi mà ta commit
