@@ -46,3 +46,5 @@ git reset --hard id-of-commit: Bỏ hẳn commit đó và những commit nó g�
 git revert id-of-commit: tạo ra 1 commit mới revert từ commit muốn thay đổi. Và nó không xóa những commit trên đường đi nó gặp. Nó chỉ xóa luôn những thay đổi của commit đó trong file vs của nó thôi. Nên cần cẩn thận khi dùng cái này do nó sẽ xóa luôn những thay đổi đó.
 
 .gitignore: dùng để bỏ qua nhưng file hay thư mục không muốn đưa vào staring area, nó sẽ không hiện ra khi ta nhấn git status, mặc dù nó mới tạo và chưa được commit nhưng n vẫn không báo. trong file gitignore nhấn tên file hoặc thư mục muốn ẩn đi. 
+
+push project lên github: use conmand 'git remote add origin name-link' --> git remote -v --> git push hoặc git push -u origin master
