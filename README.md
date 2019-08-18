@@ -48,3 +48,5 @@ git revert id-of-commit: tạo ra 1 commit mới revert từ commit muốn thay 
 .gitignore: dùng để bỏ qua nhưng file hay thư mục không muốn đưa vào staring area, nó sẽ không hiện ra khi ta nhấn git status, mặc dù nó mới tạo và chưa được commit nhưng n vẫn không báo. trong file gitignore nhấn tên file hoặc thư mục muốn ẩn đi. 
 
 push project lên github: use conmand 'git remote add origin name-link' --> git remote -v --> git push hoặc git push -u origin master. Muốn push commit lên thì làm như bth: git add--> git commit-->git push -u origin master
+
+Khi muốn join vào 1 project nào đó(A doing procject and B wanna join it): A phải gửi link cho B rồi B nhấn vào chỗ Clone or dowload để coppy đường link rồi vào cmd dùng lệnh git clone paste-tên-đường-link vào nhấn enter nó sẽ coppy giống y 1 thư mục gồm các file trong project của A và có lịch sử commit giống y A. Sau đó A (hoặc B) lại push các commit khác lên và B(hoặc A) muốn xem thay đổi đó thì bên muốn xem thay đổi dùng lệnh git pull để tải sự thay đổi về xem. 
