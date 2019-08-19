@@ -53,3 +53,5 @@ Khi muốn join vào 1 project nào đó(A doing procject and B wanna join it): 
 
 Cách tạo 1 branch và push lên github: làm như khi tạo ở trong may tính. B1 tạo 1 branch git checkout -b name-branch
 rồi cho file thay đổi hoặc thư mục vào branch đó. Sau khi add và commit xong đưa lên github bằng command git push origin name-branch
+
+Khi người A muốn người B xem branch mình vừa tạo(hay còn gọi là code view) thì người A phải vào Branch rồi nhấn vào phần branch sẽ thấy branch mình vừa tạo sau đó nhấn vào new pull request rồi nhấn creat. Bên A gửi link hoặc bên B load lại trang sau đó sẽ thấy ở phần pull request có 1 pull requset mới nhấn vào và thấy pull request bên A muốn bên B xem rồi bên B sẽ cmt để bên A sửa. Sau khi sửa ưng ý rồi B sẽ merge vào. 
