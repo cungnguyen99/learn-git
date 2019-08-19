@@ -50,3 +50,6 @@ git revert id-of-commit: tạo ra 1 commit mới revert từ commit muốn thay 
 push project lên github: use conmand 'git remote add origin name-link' --> git remote -v --> git push hoặc git push -u origin master(Chỉ dùng khi là lần đầu push còn từ lần sau dùng git push). Muốn push commit lên thì làm như bth: git add--> git commit-->git push -u origin master
 
 Khi muốn join vào 1 project nào đó(A doing procject and B wanna join it): A phải gửi link cho B rồi B nhấn vào chỗ Clone or dowload để coppy đường link rồi vào cmd dùng lệnh git clone paste-tên-đường-link vào nhấn enter nó sẽ coppy giống y 1 thư mục gồm các file trong project của A và có lịch sử commit giống y A. Sau đó A (hoặc B) lại push các commit khác lên và B(hoặc A) muốn xem thay đổi đó thì bên muốn xem thay đổi dùng lệnh git pull để tải sự thay đổi về xem. CHỈ DÙNG TRONG TRƯỜNG HỢP 1 NGƯỜI PUSH 1 NGƯỜI PULL thì mới làm được như thế còn VỪA PULL VỪA PUSH thì không được. 
+
+Cách tạo 1 branch và push lên github: làm như khi tạo ở trong may tính. B1 tạo 1 branch git checkout -b name-branch
+rồi cho file thay đổi hoặc thư mục vào branch đó. Sau khi add và commit xong đưa lên github bằng command git push origin name-branch
