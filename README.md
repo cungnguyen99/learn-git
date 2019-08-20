@@ -35,7 +35,7 @@ git branch: để xem có mấy branch và ta đang ở nhánh nào
 
 git merge: thêm 1 nhánh vào 1 nhánh khác. Vd khi ta muốn thêm nhánh B vào A. Lúc đầu ta phải dùng git checkout A rồi git merge B ta sẽ thêm được B vào A. Sau khi ta đã chắc chắn muốn đưa nhánh B vào A thì ta sẽ xóa nhánh B đi để cho repon sạch sẽ. Ta sẽ add nhánh feature/branch-class vào master nên master lúc này sẽ chứa luôn tất cả những gì có trong feature/branch-class
 
-git branch -d name-branch để xóa bỏ nhánh muốn xóa. 
+git branch -d name-branch để xóa bỏ nhánh muốn xóa. Muốn xóa branch nào thì ta phải thoát khỏi branch đó đã mới xóa được. VD ta có 2 branch feature và master, muốn xóa feature thì phải dùng git checkout master để chuyển sang master để k còn ở feature nếu lúc trước ta còn ở đó rồi mới xóa được.
 
 git reset --soft id-of-commit: quay trở lại commit muốn thay đổi. Đối với lệnh này thì file thay đổi sẽ ở trạng thái màu xanh chỉ chờ để commit lại chứ không cần add lại và ở trong file code của visua studio cũng không biến mất vì nó vẫn đang ở trong staring area chỉ chờ để commit, tức nó đang ở staring area rồi chỉ cần commit
 
