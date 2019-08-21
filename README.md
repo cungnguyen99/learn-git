@@ -66,13 +66,27 @@ khi đó các file ở nhánh đó mới xuất hiện trong nhánh master ở l
 Resolve conflict sử dụng rebase: Khi 2 người cùng thay đổi một file và push lên git. 
 +B1 mỗi người tạo 1 nhánh khác nhau từ master.
 +B2 mỗi người sửa cùng 1 file ở 2 máy khác nhau.
-+B3 sau khi 1 người nào đó push lên git xong thì ng kia phải pull về bằng command git pull.
++B3 sau khi 1 người nào đó push lên git xong thì ng kia phải pull về bằng command git pull. NHỚ PHẢI PULL VỀ BẰNG GIT PULL
 +B4 nếu ng nào merger vào master đầu tiên thì sẽ k bị conflict còn ng sau sẽ bị conflict. Người bị conflict sẽ
 Resolve conflict đó(tức là fix lại để merger vào master) và sửa như sau:
     -Chuyển sanng nhánh master
-    -pull code từ master về bằng cách git pull origin master
+    -pull code từ master về bằng cách git pull origin master sẽ có code của ng vừa merge đầu tiên trong file mà k bị conflict
     -Chuyển branch mà đang bị conflict
-    -use command git rebase master rồi vào file mà ta vừa thay đổi những chỗ bị thừa
+    -use command git rebase master rồi vào file mà ta vừa thay đổi xóa những chỗ bị thừa
     -git status--> rồi add vào rồi chạy git rebase --continue
     -cuối cùng chạy git push origin branch-name -f
     -Rồi lên git merger vào là xong
+
+Resolve conflict sử dụng merge: 
++B1 mỗi người tạo 1 nhánh khác nhau từ master.
++B2 mỗi người sửa cùng 1 file ở 2 máy khác nhau.
++B3 sau khi 1 người nào đó push lên git xong thì ng kia phải pull về bằng command git pull.
++B4 nếu ng nào merger vào master đầu tiên thì sẽ k bị conflict còn ng sau sẽ bị conflict. Người bị conflict sẽ
+Resolve conflict đó(tức là fix lại để merger vào master) và sửa như sau:
+    -Chuyển sanng nhánh master rồi pull về bằng git pull sẽ có code của ng vừa merge đầu tiên vào trong file mà k bị conflict
+    -Chuyển branch mà đang bị conflict
+    -dùng lệnh git merge master rồi vào file mà ta vừa thay đổi xóa những chỗ bị thừa
+    -git status--> rồi add rồi commit 
+    -sau đó push lại lên git bằng git push origin branch-name.
+
+************CHÚ Ý: Tránh sử dụng cách 1 khi có nhiều ng làm việc chung
