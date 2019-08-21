@@ -9,3 +9,6 @@ Mouse.prototype.run=function(){
     console.log('runinggggggg....');
 }
 module.exports=Mouse;
+Mouse.prototype.sleep=function(){
+    console.log('sleeping.....');
+}
