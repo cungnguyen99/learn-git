@@ -10,5 +10,5 @@ Mouse.prototype.run=function(){
 }
 module.exports=Mouse;
 Mouse.prototype.sleep=function(){
-    console.log('sleeping.....');
+    console.log('sleeping..... test');
 }
