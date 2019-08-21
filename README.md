@@ -55,3 +55,9 @@ Cách tạo 1 branch và push lên github: làm như khi tạo ở trong may tí
 rồi cho file thay đổi hoặc thư mục vào branch đó. Sau khi add và commit xong đưa lên github bằng command git push origin name-branch
 
 Khi người A muốn người B xem branch mình vừa tạo(hay còn gọi là code view) thì người A phải vào Branch rồi nhấn vào phần branch sẽ thấy branch mình vừa tạo sau đó nhấn vào new pull request rồi nhấn creat. Bên A gửi link hoặc bên B load lại trang sau đó sẽ thấy ở phần pull request có 1 pull requset mới nhấn vào và thấy pull request bên A muốn bên B xem rồi bên B sẽ cmt để bên A sửa. Sau khi sửa ưng ý rồi B sẽ merge vào. Sau khi sửa xong theo ý B thì thì A push lên git phải dùng câu lệnh đúng với nó, nếu sửa file ở chỗ branch nào thì phải dùng git push origin name-branch đó k được dùng git push không. git push chỉ dùng cho branch master
+
+Sau khi người A tạo ra nhánh khác và push lên rồi nhờ ng B sửa cho. B muốn down code về và xem thì dùng 
+git fetch origin name-brach (tên branch muốn down code về để check) thì code sẽ được down về máy và chạy thử. Sau khi check xong rồi thì merge ngay trên github,  merge trên git xong xóa luôn brach đó. sau khi xóa 
+brach đó trên git phải quay về local dùng git branch -D name-branch để xóa lại ở local. Nhưng sau khi xóa xong thì 
+các file ỏ máy mà ở nhánh đó sẽ biến mất nên ta phải dùng git pull để đồng bộ những thay đổi trên git với máy.
+khi đó các file ở nhánh đó mới xuất hiện trong nhánh master ở loacl 
