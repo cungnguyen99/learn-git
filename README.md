@@ -62,6 +62,17 @@ brach đó trên git phải quay về local dùng git branch -D name-branch đ�
 các file ỏ máy mà ở nhánh đó sẽ biến mất nên ta phải dùng git pull để đồng bộ những thay đổi trên git với máy.
 khi đó các file ở nhánh đó mới xuất hiện trong nhánh master ở loacl 
 
+
 Resolve conflict sử dụng rebase: Khi 2 người cùng thay đổi một file và push lên git. 
 +B1 mỗi người tạo 1 nhánh khác nhau từ master.
 +B2 mỗi người sửa cùng 1 file ở 2 máy khác nhau.
++B3 sau khi 1 người nào đó push lên git xong thì ng kia phải pull về bằng command git pull.
++B4 nếu ng nào merger vào master đầu tiên thì sẽ k bị conflict còn ng sau sẽ bị conflict. Người bị conflict sẽ
+Resolve conflict đó(tức là fix lại để merger vào master) và sửa như sau:
+    -Chuyển sanng nhánh master
+    -pull code từ master về bằng cách git pull origin master
+    -Chuyển branch mà đang bị conflict
+    -use command git rebase master rồi vào file mà ta vừa thay đổi những chỗ bị thừa
+    -git status--> rồi add vào rồi chạy git rebase --continue
+    -cuối cùng chạy git push origin branch-name -f
+    -Rồi lên git merger vào là xong
