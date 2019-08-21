@@ -3,6 +3,7 @@ function Dog(){
 }
 Dog.prototype.run=function(){
     console.log('Running.....');
-}Dog.prototype.jump=function(){
+}
+Dog.prototype.jump=function(){
     console.log('Jumped...');
 }
