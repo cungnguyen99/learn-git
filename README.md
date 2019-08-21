@@ -61,3 +61,7 @@ git fetch origin name-brach (tên branch muốn down code về để check) thì
 brach đó trên git phải quay về local dùng git branch -D name-branch để xóa lại ở local. Nhưng sau khi xóa xong thì 
 các file ỏ máy mà ở nhánh đó sẽ biến mất nên ta phải dùng git pull để đồng bộ những thay đổi trên git với máy.
 khi đó các file ở nhánh đó mới xuất hiện trong nhánh master ở loacl 
+
+Resolve conflict sử dụng rebase: Khi 2 người cùng thay đổi một file và push lên git. 
++B1 mỗi người tạo 1 nhánh khác nhau từ master.
++B2 mỗi người sửa cùng 1 file ở 2 máy khác nhau.
